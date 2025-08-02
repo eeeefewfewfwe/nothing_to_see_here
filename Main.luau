@@ -73,7 +73,7 @@ local decode_args;  decode_args = @native function(encoded: string, key: {number
 end;
 local Frame = Library:CreateWindow({
 	Title = "S19 Gui by WATDAHECKLOL32 (DrBloop) and whiz.sk, lightstrikevex",
-	Center = true, 
+	Center = false, 
 	AutoShow = true, 
 });
 local Tabs = {
