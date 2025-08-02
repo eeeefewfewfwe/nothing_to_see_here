@@ -6,7 +6,7 @@
 -- Info:    Since I got banned from S19 you know what time it is.
 -- hai thunder hai mason :333333333333
 local Library = loadstring(
-	game:HttpGet("https://raw.githubusercontent.com/WATDAHECKLOL-Studios/Open-Source/refs/heads/main/Exploits/Archives/S.C.P.%20Site-19%20Roleplay/gosh.luau")
+	game:HttpGet("https://raw.githubusercontent.com/eeeefewfewfwe/nothing_to_see_here/refs/heads/main/UI_LIB.luau")
 )();
 local getgc = getgc;
 local task = task;
