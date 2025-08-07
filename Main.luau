@@ -131,7 +131,9 @@ local teleport_locations: {[string]: CFrame} = {
 	["049 CC"] = CFrame.new(528, -40, -271);
 	["914 CC"] = CFrame.new(768, 8, -146);
 	["Gate A outside"]  = CFrame.new(426, 537, 783);
-	
+	["Gate B outside"]  = CFrame.new(849, 527, 593);
+	["Gate B tower"]  = CFrame.new(871, 499, 461);
+
 }
 local players_tab = Tabs.Teleport:AddLeftGroupbox("Players");
 
@@ -231,6 +233,7 @@ Players.PlayerRemoving:Connect(@native function(player: Player)
 	for i,v in Players:GetPlayers() do
 		string_players[i] = tostring(v);
 	end;
+	thingy.Values = string_players;
 	return;
 end);
 Players.PlayerAdded:Connect(@native function(new_player: Player) 
@@ -238,6 +241,7 @@ Players.PlayerAdded:Connect(@native function(new_player: Player)
 	for i,v in Players:GetPlayers() do
 		string_players[i] = tostring(v);
 	end;
+	thingy.Values = string_players;
 	if anti_mod and new_player:IsInGroup(scp_group) and new_player:GetRankInGroup(scp_group) > 8 then
 		local join_msg: string = "Moderator "..tostring(new_player).." joined";
 		if kick_activater then
@@ -277,7 +281,7 @@ helpful_left_group:AddButton("Scan for mods", @native function(): ()
 	return check_for_mods();
 end);
 
-
+print(thingy.Values)
 local helpful_right_group = Tabs.Helpful:AddRightGroupbox("Util");
 helpful_right_group:AddToggle("Always show mouse", {
 	Text = "Always show mouse";
@@ -306,6 +310,10 @@ end);
 helpful_right_group:AddButton("Activate tool", @native function(): ()
 	network:FireServer("setToolState", "Activate");
 	return;
+end);
+
+helpful_right_group:AddButton("Load ESP", @native function(): ()
+	return loadstring(game:HttpGet("https://raw.githubusercontent.com/sleepyBIOS/scripts/refs/heads/main/site19esp.luau"))(); 
 end);
 
 local main_left_group = Tabs.Main:AddLeftGroupbox("Main");
