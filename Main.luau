@@ -475,7 +475,7 @@ local toggle_infinite_ammo; toggle_infinite_ammo = @native function(enabled: boo
 		end;
 	end;
 end;
-weapon_section_1:CrreateToggle({
+weapon_section_1:CreateToggle({
 	Name = "Infinite Ammo";
 	Description = nil;
 	Callback = @native function(state: boolean): ()
