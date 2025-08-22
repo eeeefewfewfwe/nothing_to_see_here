@@ -22,6 +22,8 @@ local Players: Players = service.Players;
 local Player = Players.LocalPlayer :: Player;
 local CollectionService: CollectionService = service.CollectionService;
 local network = {};
+local wait = task.wait;
+local spawn = task.spawn;
 for _,v in getgc(false) do
 	if type(v) == "function" and islclosure(v) then
 		if debug.info(v, "n") == "FireServer" then
@@ -194,24 +196,6 @@ config:CreateSlider({Name = "Teleport retry count",
 	end;	
 });
 local players_section = teleport_tab:CreateSection("Players");
-players_section:CreateDropdown({
-	Name = "Teleport to player";
-	Description  = nil;	
-	Options = {};
-	CurrentOption = {};
-	MultipleOptions = false;
-	SpecialType = "Player";
-	Callback = @native function(Option: string)
-		print(Option)
-	end,
-});
-local helpful_section = helpful_tab:CreateSection("Section 1");
-local Containnment = teleport_tab:CreateSection("SCP Cells");
-local Bays = teleport_tab:CreateSection("Bays");
-local misc_left = teleport_tab:CreateSection("Uncategorized");
-local misc_right = teleport_tab:CreateSection("Uncategorized");
-local Player = Players.LocalPlayer :: Player;
-local wait = task.wait;
 local teleport_to_location; teleport_to_location = @native function(Cframe: CFrame)
 	for i: number = 1, Try do
 		wait();
@@ -220,7 +204,6 @@ local teleport_to_location; teleport_to_location = @native function(Cframe: CFra
 		end;
 		Player.Character:PivotTo(CFrame.new(538.700073, 34, -190.999969, 0, 1, 0, 0, 0, 1, 1, 0, 0));
 	end;
-
 	wait(0.2);
 	for i: number = 1, Try do
 		task.wait();
@@ -230,6 +213,27 @@ local teleport_to_location; teleport_to_location = @native function(Cframe: CFra
 		Player.Character:PivotTo(Cframe);
 	end;
 end;
+players_section:CreateDropdown({
+	Name = "Teleport to player";
+	Description  = nil;	
+	Options = {};
+	CurrentOption = {};
+	MultipleOptions = false;
+	SpecialType = "Player";
+	Callback = @native function(Option: string)
+		local plr: Player = Players[tostring(Option)];
+		if plr.Character and plr.Character:FindFirstChild("HumanoidRootPart") then
+			teleport_to_location(plr.Character.Head.CFrame)
+		end;
+	end,
+});
+local helpful_section = helpful_tab:CreateSection("Section 1");
+local Containnment = teleport_tab:CreateSection("SCP Cells");
+local Bays = teleport_tab:CreateSection("Bays");
+local misc_left = teleport_tab:CreateSection("Uncategorized");
+local misc_right = teleport_tab:CreateSection("Uncategorized");
+local Player = Players.LocalPlayer :: Player;
+
 for i: string, v: CFrame in teleport_locations do
 	local group_side;
 	if i:find("CC") then
@@ -447,7 +451,38 @@ weapon_section_1:CreateToggle({
 		end;
 		return;
 	end,
-})
+});
+local toggle_infinite_ammo; toggle_infinite_ammo = @native function(enabled: boolean)
+	local LUA_GC = getgc(true);
+	local Network;
+	local newluaclosure = newlclosure;
+	for _,v in LUA_GC do
+		if type(v) == "table" then
+			if rawget(v, "InvokeServer") then
+				Network = v;
+			elseif rawget(v, "_discharge") then
+				if not enabled then
+					restorefunction(rawget(v, "_discharge"));
+					break;
+				end;
+				local hook; hook = hookfunction(rawget(v, "_discharge"), newluaclosure(function(gun_settings)
+					Network:FireServer("setToolState", "Reload");
+					Network:FireServer("setToolState", "Reloaded");
+					gun_settings.Ammo = 999;
+					hook(gun_settings);
+				end));
+			end;
+		end;
+	end;
+end;
+weapon_section_1:CrreateToggle({
+	Name = "Infinite Ammo";
+	Description = nil;
+	Callback = @native function(state: boolean): ()
+		toggle_infinite_ammo(state);
+		return;
+	end,
+});
 weapon_section_1:CreateToggle({
 	Name = "Disable RPM";
 	Description = "Hooks task.wait";
