@@ -85,8 +85,8 @@ local decode_args;  decode_args = @native function(encoded: string, key: {number
 	return decoded;
 end;
 local helpful_tab =  Window:CreateTab({
-	Name = "Helpful";
-	Icon = "help_outline";
+	Name = "Main";
+	Icon = "report";
 	ImageSource =  "Material";
 	ShowTitle = true;	
 });
@@ -217,10 +217,11 @@ players_section:CreateDropdown({
 	Name = "Teleport to player";
 	Description  = nil;	
 	Options = {};
-	CurrentOption = {};
+	CurrentOption = {tostring(Player)};
 	MultipleOptions = false;
 	SpecialType = "Player";
 	Callback = @native function(Option: string)
+		if Option == tostring(Player) then return; end;
 		local plr: Player = Players[tostring(Option)];
 		if plr.Character and plr.Character:FindFirstChild("HumanoidRootPart") then
 			teleport_to_location(plr.Character.Head.CFrame)
@@ -233,7 +234,6 @@ local Bays = teleport_tab:CreateSection("Bays");
 local misc_left = teleport_tab:CreateSection("Uncategorized");
 local misc_right = teleport_tab:CreateSection("Uncategorized");
 local Player = Players.LocalPlayer :: Player;
-
 for i: string, v: CFrame in teleport_locations do
 	local group_side;
 	if i:find("CC") then
@@ -289,6 +289,15 @@ local toggle_run = @native function(): ()
 	end;
 	return;
 end;
+local teleport_service: TeleportService = service.TeleportService;
+helpful_tab:CreateButton({
+	Name = "Teleport to testing place";
+	Description = nil;
+	Callback = @native function(_: unknown): ()
+		teleport_service:Teleport(4346713746, Player);
+		return;
+	end,
+});
 helpful_tab:CreateToggle({
 	Name = "Minimap spy (buggy for now)  ";
 	Description = "Shows everyone on the minimap regardless of team, colors changes based on team color.";
@@ -338,6 +347,47 @@ helpful_tab:CreateToggle({
 		end;
 		return;
 	end,	
+});
+helpful_section:CreateToggle({
+	Name = "Full bright";
+	Callback = @native function(enabled: boolean): ()
+		if enabled then
+			local hook; hook = hookmetamethod(game, "__newindex", newcclosure(function(...)
+				local self, index, value = ...;
+				if not checkcaller() and self and typeof(self) == "Instance" and self == game:GetService("Lighting") then
+					return;
+				end;
+				hook(...);
+			end));
+			Luna:Notification({
+				Title = "Done";
+				Icon  = "check_box";
+				ImageSource = "Material";
+				Content = "Now run IY full bright"
+			});
+		else
+			restorefunction(getrawmetatable(game).__newindex);
+		end;
+		return;
+	end,	
+});
+helpful_tab:CreateButton({
+	Name = "Trigger autofarm";
+	Callback = @native function(_: unknown): ()
+		local send_count: number = 999999;
+		for _,v in getgc(false) do
+			if type(v) == "function" and debug.info(v, "n") == "_createBlood" then
+				local hook; hook = hookfunction(v, newlclosure(function(...)
+					for i = 1, send_count do
+						wait();
+						hook(...);
+					end;
+					return hook(...)
+				end));
+			end;
+		end;
+		return;
+	end,
 });
 helpful_tab:CreateDropdown({
 	Name = "Get Tool";
@@ -552,6 +602,27 @@ local toggle_insta_kill; toggle_insta_kill = @native function(enabled: boolean)
 		return hook(...);
 	end));
 end;
+local weapon_section_2 = weapon_tab:CreateSection("Spread");
+weapon_section_2:CreateToggle({
+	Name = "No Spread";
+	Callback = @native function(toggle: boolean)
+		if toggle then
+			for _,v in getgc(true) do
+				if type(v) == 'table' and rawget(v, "Update") and rawget(v, "GetHolstered") and rawget(v, "Crouch") and rawget(v, "Reloaded") then
+					local func = rawget(v, "Update");
+					if toggle then
+						hookfunction(func, newlclosure(function(self)
+							rawset(self, "_spray", {0, 0, 0});
+						end));
+					else
+						restorefunction(func)
+					end;
+				end;			
+			end;
+		end;
+	end,
+		
+});
 local weapon_section_2 = weapon_tab:CreateSection("Instant kill");
 weapon_section_2:CreateLabel({
 	Text = "Do not set the count too high or spam too fast else face detection by UDMUX.";
