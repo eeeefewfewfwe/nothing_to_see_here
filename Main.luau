@@ -621,7 +621,7 @@ weapon_section_2:CreateToggle({
 			end;
 		end;
 	end,
-		
+
 });
 local weapon_section_2 = weapon_tab:CreateSection("Instant kill");
 weapon_section_2:CreateLabel({
@@ -785,6 +785,15 @@ Moderation:CreateButton({
 	end;
 });
 Moderation:CreateToggle({
+	Name = "Kick when moderator arrives";
+	Description= nil;
+	CurrentValue = false;
+	Callback = @native function(value: boolean): ()
+		states.mod_kick = value;
+		return;
+	end,
+});
+Moderation:CreateToggle({
 	Name = "Notifer";
 	Description = "Notifies you when a moderator joinned.";
 	CurrentValue = false;
@@ -849,7 +858,7 @@ Players.PlayerAdded:Connect(@native function(player: Player)
 			network:FireServer("switchTeamMenu", "Janitor");
 		end;
 		if states.mod_kick then
-			Player:Kick("Mod joinned "..tostring(player))
+			Player:Kick("Mod joinned "..tostring(player));
 		end;
 	end;
 	return;
