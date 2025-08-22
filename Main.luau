@@ -35,11 +35,11 @@ for _,v in getgc(false) do
 end;
 local Luna = loadstring(game:HttpGet("https://raw.nebulasoftworks.xyz/luna", true))();
 local Window = Luna:CreateWindow({
-	Name = "Site 19 SEX HUB (Powered by WATDAHECKLOL Softworks)", 
+	Name = "Site 19 SEX HUB V2 (Powered by WATDAHECKLOL Softworks)", 
 	Subtitle = nil, 
 	LogoID = Players:GetUserThumbnailAsync(3166859533, Enum.ThumbnailType.HeadShot, Enum.ThumbnailSize.Size420x420),
 	LoadingEnabled = true, 
-	LoadingTitle = "Site-19 SEX HUB", 
+	LoadingTitle = "Site-19 SEX HUB V2", 
 	LoadingSubtitle = "by WATDAHECKLOL32, LightStrikeVex, whiz.sk",
 	ConfigSettings = {
 		RootFolder = nil, 
