@@ -1,5 +1,7 @@
 --!nocheck
 --!native
+-- Author: WATDAHECKLOL32
+-- Date: 8/22/25
 if not hookmetamethod or not newcclosure or not getgc or not cloneref then
 	error("unsupported", 2);
 	return;
