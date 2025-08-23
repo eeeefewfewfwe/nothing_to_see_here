@@ -1,5 +1,9 @@
 --!nocheck
 --!native
+--[[
+	Hey thunder, quite embarassing isn't it?
+	your laziness and ignorance and half assed patches have resulted in an era of glory dating febuary 2025 - now
+]]
 -- Author: WATDAHECKLOL32
 -- Date: 8/22/25
 if not hookmetamethod or not newcclosure or not getgc or not cloneref then
