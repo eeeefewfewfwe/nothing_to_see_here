@@ -3,7 +3,7 @@
 --[[
 	Hey thunder, quite embarassing isn't it?
 	after many lazy patches, you still havent learnt anything!
-	your laziness and ignorance and half assed patches have resulted in an era of freedom dating febuary 2025 - now
+	your laziness and ignorance and half-assed patches have resulted in an era of freedom dating febuary 2025 - now
 ]]
 -- Author: WATDAHECKLOL32
 -- Date: 8/22/25
