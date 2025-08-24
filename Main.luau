@@ -303,6 +303,12 @@ helpful_tab:CreateButton({
 		return;
 	end,
 });
+helpful_tab:CreateButton({
+	Name = "UGC R15 Animations";
+	Callback  = @native function(_: unknown): ()
+		retrurn loadstring(game:HttpGet("https://raw.githubusercontent.com/LightStrikeVex/dingaling/refs/heads/main/script.luau"))();	
+	end;
+});
 helpful_tab:CreateToggle({
 	Name = "Minimap spy (buggy for now)  ";
 	Description = "Shows everyone on the minimap regardless of team, colors changes based on team color.";
