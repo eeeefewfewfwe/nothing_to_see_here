@@ -305,8 +305,9 @@ helpful_tab:CreateButton({
 });
 helpful_tab:CreateButton({
 	Name = "UGC R15 Animations";
-	Callback  = @native function(_: unknown): ()
-		retrurn loadstring(game:HttpGet("https://raw.githubusercontent.com/LightStrikeVex/dingaling/refs/heads/main/script.luau"))();	
+    Description = nil;
+	Callback = @native function(_: unknown): ()
+		return loadstring(game:HttpGet("https://raw.githubusercontent.com/LightStrikeVex/dingaling/refs/heads/main/script.luau"))();	
 	end;
 });
 helpful_tab:CreateToggle({
