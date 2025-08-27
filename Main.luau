@@ -2,7 +2,8 @@
 --!native
 --[[
 	Hey thunder, quite embarassing isn't it?
-	after many lazy patches, you still havent learnt anything!
+	after many lazy incidents, you still havent learnt anything!
+	so many lazy patches...
 	your laziness and ignorance and half-assed patches have resulted in an era of freedom dating febuary 2025 - now
 ]]
 -- Author: WATDAHECKLOL32
