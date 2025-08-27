@@ -2,9 +2,10 @@
 --!native
 --[[
 	Hey thunder, quite embarassing isn't it?
-	after many lazy incidents, you still havent learnt anything!
-	so many lazy patches...
-	your laziness and ignorance and half-assed patches have resulted in an era of freedom dating febuary 2025 - now
+	After many incidents, you still havent learn't anything!
+	So many lazy patches...
+	Imagine taking 4 days to patch the February 22nd vuln! 
+	Your laziness and ignorance and half-assed patches have resulted in an era of freedom dating Febuary 2025 - now
 ]]
 -- Author: WATDAHECKLOL32
 -- Date: 8/22/25
