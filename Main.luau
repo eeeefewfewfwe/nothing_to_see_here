@@ -637,10 +637,6 @@ weapon_section_2:CreateToggle({
 });
 local weapon_section_2 = weapon_tab:CreateSection("Instant kill");
 weapon_section_2:CreateLabel({
-	Text = "THIS IS PATCHED. :(";
-	Style = 3;
-})
-weapon_section_2:CreateLabel({
 	Text = "Do not set the count too high or spam too fast else face detection by UDMUX.";
 	Style = 3;
 })
