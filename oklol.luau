@@ -4,11 +4,11 @@
 local Luna = loadstring(game:HttpGet("https://raw.nebulasoftworks.xyz/luna", true))();
 local task = task;
 local Window = Luna:CreateWindow({
-	Name = "Site V5 SEX HUB", 
+	Name = "Site 19 BOOTLEG SEX HUB", 
 	Subtitle = "Power beyond your comprehension. by WATDAHECKLOL32, LightStrikeVex", 
 	LogoID = nil,
 	LoadingEnabled = false; 
-	LoadingTitle = "Site-19 V5 HUB V1", 
+	LoadingTitle = "Site 19 BOOTLEG SEX HUB", 
 	LoadingSubtitle = "Power beyond your comprehension. by WATDAHECKLOL32, LightStrikeVex",
 	ConfigSettings = {
 		RootFolder = nil, 
