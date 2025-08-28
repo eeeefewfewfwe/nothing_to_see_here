@@ -38,7 +38,7 @@ local service = setmetatable({}, {
 	end,	
 });
 local replicated_storage: ReplicatedStorage = service.ReplicatedStorage;
-local damage_remote: RemoteEvent = replicated_storage.DamageEvent;
+--- local damage_remote: RemoteEvent = replicated_storage.DamageEvent;
 local buy_remote: RemoteEvent = replicated_storage["Flux/Events"].AI.BuyItem;
 local main_tab = Window:CreateTab({
 	Name = "Main";
@@ -198,19 +198,6 @@ main_tab:CreateButton({
 		return;
 	end,
 })
-main_tab:CreateButton({
-	Name = "Damage all";
-	Description = "Reduces all players health by 11";
-	Callback = @native function(): ()
-		for _,v in Players:GetPlayers() do
-			if not v:IsDescendantOf(game) or not v.Character or not v.Character:FindFirstChild("Humanoid") or v == Player then
-				continue;
-			end;
-			damage_remote:FireServer(v.Character.Humanoid);
-		end;
-		return;
-	end,
-});
 main_tab:CreateButton({
 	Name = "Toggle other's flashlights";
 	Description = "lmao";
