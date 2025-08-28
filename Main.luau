@@ -43,11 +43,11 @@ end;
 local Luna = loadstring(game:HttpGet("https://raw.nebulasoftworks.xyz/luna", true))();
 local Window = Luna:CreateWindow({
 	Name = "Site 19 SEX HUB (Powered by WATDAHECKLOL Softworks)", 
-	Subtitle = nil, 
+	Subtitle = "WATDAHECKLOL Softworks", 
 	LogoID = 82795327169782,
 	LoadingEnabled = true, 
 	LoadingTitle = "Site-19 SEX HUB V2.0", 
-	LoadingSubtitle = "by WATDAHECKLOL32, LightStrikeVex, whiz.sk",
+	LoadingSubtitle = "by Director WATDAHECKLOL32, Special Agent Vex, Agent whiz",
 	ConfigSettings = {
 		RootFolder = nil, 
 		ConfigFolder = "S19 Hub" 
@@ -307,7 +307,7 @@ helpful_tab:CreateButton({
 });
 helpful_tab:CreateButton({
 	Name = "UGC R15 Animations";
-    Description = nil;
+	Description = nil;
 	Callback = @native function(_: unknown): ()
 		return loadstring(game:HttpGet("https://raw.githubusercontent.com/LightStrikeVex/dingaling/refs/heads/main/script.luau"))();	
 	end;
