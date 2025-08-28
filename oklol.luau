@@ -1,6 +1,6 @@
+-- Seems like S19 Bootlegs are no better than real one (who'd figure?)
 --!nocheck
 --!native
-
 local Luna = loadstring(game:HttpGet("https://raw.nebulasoftworks.xyz/luna", true))();
 local task = task;
 local Window = Luna:CreateWindow({
