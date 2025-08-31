@@ -6,6 +6,10 @@
 	So many lazy patches...
 	Imagine taking 4 days to patch the February 22nd vuln! 
 	Your laziness and ignorance and half-assed patches have resulted in an era of freedom dating Febuary 2025 - now
+
+	PS: I see you Stellar/Trishdevs most egoistic s19 lowrank ever! Why don't you come back into bloop's dms and yell at him again LOOL!L!OLL!!
+
+	
 ]]
 -- Author: WATDAHECKLOL32
 -- Date: 8/22/25
