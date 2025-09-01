@@ -47,7 +47,7 @@ end;
 local Luna = loadstring(game:HttpGet("https://raw.nebulasoftworks.xyz/luna", true))();
 local Window = Luna:CreateWindow({
 	Name = "Site 19 SEX HUB", 
-	Subtitle = "Powered WATDAHECKLOL Softworks", 
+	Subtitle = "Power beyond your comprehension.", 
 	LogoID = 82795327169782,
 	LoadingEnabled = true, 
 	LoadingTitle = "Site-19 SEX HUB V2.0", 
